@@ -1,0 +1,152 @@
+@import 'primeflex/primeflex.scss';
+
+:root {
+    --profileMenuWidth: 85px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @include styleclass('m-0 overflow-hidden');
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100vh;
+    width: 100vw;
+}
+
+div#root {
+    @include styleclass('overflow-hidden h-full w-full');
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/*app page*/
+.app {
+    @include styleclass('flex flex-column flex-nowrap overflow-hidden w-full h-full');
+}
+.app-header {
+    @include styleclass('surface-card h-auto z-1');
+    font-size: calc(10px + 2vmin);
+}
+.app-logo, 
+.app-logo-text {
+    @include styleclass('flex flex-row flex-nowrap align-items-center gap-1 text-white');
+}
+.app-logo-text span:first-child {
+    font-family: 'Brush Script MT', 'Brush Script Std', cursive;
+    font-size: xx-large;
+    font-weight: calc(4em);
+}
+.app-content {
+    @include styleclass('flex overflow-hidden w-full min-h-full z-0');
+}
+
+/*disable*/
+.search-box.p-inputtext:enabled:focus {
+	@include styleclass('border-transparent shadow-none');
+}
+
+/*profile page*/
+.profile-menu {
+    @include styleclass('overflow-y-auto overflow-x-hidden m-0 pl-1 p-0 relative h-full flex flex-column border-right-1 border-gray-300');
+	width: 95px;
+}
+.profile-menu > .nav-item:nth-child(1) {
+    @include styleclass('pointer-events-none, text-overflow-ellipsis overflow-hidden white-space-nowrap');
+	height: 25px;
+}
+.nav-item {
+    @include styleclass('relative border-round-left-3xl z-1 cursor-pointer')
+}
+.nav-item.active {
+    @include styleclass('bg-yellow-600 shadow-8 pl-1')
+}
+.nav-item.active > .nav-link {
+    @include styleclass('surface-card text-color');
+}
+.nav-link {
+    @include styleclass('border-round-left-3xl flex flex-column gap-1 justify-content-center align-items-center pl-2 p-3 no-underline');
+}
+/*curve outside*/
+.nav-item.active::before {
+    @include styleclass('absolute right-0 border-circle pointer-events-none z-0');
+    content: '';
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    box-shadow: 25px 25px 3px 0 var(--surface-0);
+} 
+/*curve inside*/
+.nav-item.active::after {
+    @include styleclass('absolute right-0 border-circle pointer-events-none z-0');
+    content: '';
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    box-shadow: 25px -25px 3px 0 var(--surface-0);
+} 
+/*profile detail*/
+.profile-detail {
+    @include styleclass('h-full overflow-hidden relative flex flex-column transition-all transition-duration-500 transition-ease-in-out');
+    width: calc(100% - 95px);
+}
+
+/*cart*/
+.cart.p-dataview.p-dataview-list {
+    @include styleclass('flex flex-column flex-nowrap overflow-hidden w-full h-auto border-1 surface-border');
+    /*min-height: 100% !important;*/
+}
+.cart.p-dataview.p-dataview-list .p-dataview-header {
+    @include styleclass('border-none p-0');
+}
+.cart.p-dataview.p-dataview-list .p-dataview-content {
+    @include styleclass('p-0 border-none overflow-auto');
+    /*min-height: 100% !important;*/
+} 
+.cart.p-dataview.p-dataview-list .p-dataview-footer {
+    @include styleclass('p-0 border-none');
+} 
+  
+/*mini cart*/
+.mini-cart.p-dataview.p-dataview-list {
+    @include styleclass('flex flex-column flex-nowrap overflow-hidden w-full h-auto border-1 surface-border');
+   /* height: 100% !important;*/
+}
+.mini-cart.p-dataview.p-dataview-list .p-dataview-header {
+    @include styleclass('border-none p-0');
+} 
+.mini-cart.p-dataview.p-dataview-list .p-dataview-content {
+    @include styleclass('p-0 border-none overflow-auto');
+    /*max-height: 100% !important;*/
+}
+.mini-cart.p-dataview.p-dataview-list .p-dataview-footer {
+    @include styleclass('p-0 border-none');
+}
+
+/*overlay panel*/
+.app-menu.p-overlaypanel .p-overlaypanel-content {
+    @include styleclass('p-0');
+}
+
+/*catalog*/
+.catalog-item:hover {
+    box-shadow: 0 2px var(--yellow-700) inset;
+}
+/**/
+.product-desc img {
+    @include styleclass('w-full h-auto');
+}
+
+
+
+
+
+
+
+  
