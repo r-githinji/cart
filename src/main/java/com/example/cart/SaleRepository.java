@@ -44,10 +44,10 @@ public class SaleRepository {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaUpdate<Sale> cu = cb.createCriteriaUpdate(Sale.class);
 		Root<Sale> sle = cu.from(Sale.class);
-		Predicate[] preds = new Predicate[] {cb.equal(sle.get("id"), sale.getId())};
 		for (Map.Entry<String, ?> entry: params.entrySet()) {
 			cu = cu.set(sle.get(entry.getKey()), entry.getValue());
 		}
+		Predicate[] preds = new Predicate[] {cb.equal(sle.get("id"), sale.getId())};
 		cu = cu.where(preds);
 		return em.createQuery(cu).executeUpdate() > 0;
 	}
